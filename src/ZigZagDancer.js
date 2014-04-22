@@ -29,21 +29,19 @@ ZigZagDancer.prototype.step = function(xAxis, yAxis, speed){
 
   var xIncrement = xAxis * (t-m) * speed;
   var yIncrement = yAxis * (t-m) * speed;
-
-  var _x = this._x + (xIncrement);
-  var _y = this._y + (yIncrement);
-
-  var newLeft = Math.floor(_x);
-  var newTop = Math.floor(_y);
+  
+  this._x = this._x + (xIncrement);
+  this._y = this._y + (yIncrement);
+  
+  var newLeft = Math.floor(this._x);
+  var newTop = Math.floor(this._y);
 
   var that = this;
 
   this.$node.animate({
       top: newTop,
       left: newLeft,
-    }, 1, function() {
-      that.step();
-    });
+    }, 1);
 
 };
 

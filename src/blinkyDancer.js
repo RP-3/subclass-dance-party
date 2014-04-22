@@ -1,6 +1,5 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
-  console.log(Dancer.prototype.step);
 };
 
 //BlinkyDancer's prototype points at a new instance of Dancer
@@ -14,7 +13,7 @@ BlinkyDancer.prototype.step = function(){
 
 };
 
-//BlinkyDancer.prototype.oldStep = Dancer.prototype.step;
+BlinkyDancer.prototype.oldStep = Dancer.prototype.step;
 
 
   // blinkyDancer.step = function(){

@@ -1,6 +1,26 @@
 $(document).ready(function(){
   window.dancers = [];
 
+  var t = 0;
+
+  function moveit() {
+    t += 0.05;
+
+    var r = 100;         // radius
+    var xcenter = 100;   // center X position
+    var ycenter = 100;   // center Y position
+
+    var newLeft = Math.floor(xcenter + (r * Math.cos(t)));
+    var newTop = Math.floor(ycenter + (r * Math.sin(t)));
+
+    $('.zigzag').animate({
+        top: newTop,
+        left: newLeft,
+    }, 1, function() {
+      moveit();
+    });
+  }
+
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
@@ -29,5 +49,9 @@ $(document).ready(function(){
     );
     $('body').append(dancer.$node);
   });
-});
 
+  $(".animation").click(function(){
+    moveit();
+  })
+
+});

@@ -7,9 +7,17 @@ var MoverDancer = function(top, left, timeBetweenSteps){
 MoverDancer.prototype = Object.create(Dancer.prototype);
 MoverDancer.prototype.constructor = MoverDancer;
 
+MoverDancer.prototype.setPosition = function(xPos, yPos){
+  var styleSettings = {
+    top: yPos,
+    left: xPos,
+  };
+  this.$node.addClass('mover');
+  this.$node.css(styleSettings);
+};
+
 MoverDancer.prototype.step = function(){
   this.oldStep.call(this);
-  this.$node.toggle();
 
   var xPos = Math.random() * 10;
   var yPos = Math.random() * 10;

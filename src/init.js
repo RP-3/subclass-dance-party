@@ -1,25 +1,23 @@
 $(document).ready(function(){
   window.dancers = [];
+  var name;
 
-  var t = 0;
-
-  function moveit() {
-    t += 0.05;
-
-    var r = 100;         // radius
-    var xcenter = 100;   // center X position
-    var ycenter = 100;   // center Y position
-
-    var newLeft = Math.floor(xcenter + (r * Math.cos(t)));
-    var newTop = Math.floor(ycenter + (r * Math.sin(t)));
-
-    $('.zigzag').animate({
-        top: newTop,
-        left: newLeft,
-    }, 1, function() {
-      moveit();
-    });
-  }
+  $( "#whichkey" ).on( "keydown", function( event ) {
+    console.log(event.which);
+    if(event.which === 37){ //left
+      console.log(dancer, this);
+      $('.zigzag').step(-1, 0, 1);
+    }
+    if(event.which === 38){ //up
+      $('.zigzag').step(0, 1, 1);
+    }
+    if(event.which === 39){ //right
+      $('.zigzag').step(1, 0, 1);
+    }
+    if(event.which === 340){ //down
+      $('.zigzag').step(0, -1, 1);
+    }
+  });
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -41,17 +39,13 @@ $(document).ready(function(){
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
+      $("body").innerHeight() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
   });
 
-  $(".animation").click(function(){
-    moveit();
-  })
 
 });

@@ -34,9 +34,13 @@ body, a:link, a:visited, a:active{
   border-radius:40px;
   position:absolute;
 }
-
 .zigzag{
-  border:40px solid green;
+  border:20px solid yellow;
+  border-radius: 20px;
+  position:absolute;
+}
+.circular{
+  border:20px solid white;
   border-radius: 20px;
   position:absolute;
 }

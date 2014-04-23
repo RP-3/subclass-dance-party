@@ -8,8 +8,8 @@ BlinkyDancer.prototype.constructor = BlinkyDancer;
 
 BlinkyDancer.prototype.step = function(){
   this.$node.toggle();
-  this.oldStep.call(this);
+  Dancer.prototype.step.call(this);
 
 };
+//We can access the step function from dancer using Call/Apply, passing 'this' to set the current blinky dancer as the context
 
-BlinkyDancer.prototype.oldStep = Dancer.prototype.step;

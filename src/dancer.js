@@ -5,6 +5,8 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.left = left;
   this.setPosition(top, left);
   this.step();
+  this.queue = false;
+
 };
 
 Dancer.prototype.step = function(){
@@ -13,6 +15,15 @@ Dancer.prototype.step = function(){
     self.step();
   }, this.timeBetweenSteps);
 
+};
+
+Dancer.prototype.lineUp = function(){
+  if (this.queue === true){
+    this.$node.animate({top: 400, left: (Math.random() * window.innerWidth)}, 400);
+  }
+  else{
+    this.step();
+  }
 };
 
 Dancer.prototype.setPosition = function(top, left){

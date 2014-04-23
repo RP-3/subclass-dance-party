@@ -11,13 +11,7 @@ var MoverDancer = function(top, left, timeBetweenSteps){
 MoverDancer.prototype = Object.create(Dancer.prototype);
 MoverDancer.prototype.constructor = MoverDancer;
 
-MoverDancer.prototype.setPosition = function(xPos, yPos){
-  var styleSettings = {
-    top: yPos,
-    left: xPos,
-  };
-  this.$node.css(styleSettings);
-};
+
 
 MoverDancer.prototype.step = function(){
   this._t = this._t + 0.02;

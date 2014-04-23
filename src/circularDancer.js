@@ -11,15 +11,10 @@ var CircularDancer = function(top, left, timeBetweenSteps){
 CircularDancer.prototype = Object.create(Dancer.prototype);
 CircularDancer.prototype.constructor = CircularDancer;
 
-CircularDancer.prototype.setPosition = function(xPos, yPos){
-  var styleSettings = {
-    top: yPos,
-    left: xPos,
-  };
-  this.$node.css(styleSettings);
-};
-
 CircularDancer.prototype.step = function(){
+  if (this.queue === true){
+    return;
+  }
 
   this._t = this._t + 0.02;
   var t = this._t;
@@ -51,8 +46,8 @@ CircularDancer.prototype.step = function(){
       top: newTop,
       left: newLeft,
     }, 1, function() {
-      that.step();
-    });
+        that.step();
+      });
 };
 
 CircularDancer.prototype.oldStep = Dancer.prototype.step;

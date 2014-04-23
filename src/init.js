@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   window.dancers = [];
   window.score = 0;
   var name;
@@ -18,7 +19,22 @@ $(document).ready(function(){
     }
   });
 
+  $(".lineUpButton").on("click", function(){
+    for (var i = 1; i < window.dancers.length; i++){
+      if (window.dancers[i].queue === false){
+        console.log(window.dancers[i]);
+        window.dancers[i].queue = true;
+        window.dancers[i].lineUp();
+      }
+      else {
+        window.dancers[i].queue = false;
+        window.dancers[i].step();
+      }
+    }
+  });
+
   $(".addDancerButton").on("click", function(event){
+    console.log('clicked');
 
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
@@ -26,16 +42,18 @@ $(document).ready(function(){
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+
     var dancer = new dancerMakerFunction(
       $("body").innerHeight() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    $('body').append(dancer.$node);
-    if (dancerMakerFunctionName === "ZigZagDancer"){
-      window.dancers.push(dancer);
-    }
+    $("body").append(dancer.$node);
+    window.dancers.push(dancer);
   });
+ $('.ZigZag').trigger('click');
+ $('.ZigZag').hide();
+
 
 
 });

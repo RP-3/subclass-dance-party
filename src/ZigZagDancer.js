@@ -11,13 +11,7 @@ var ZigZagDancer = function(top, left, timeBetweenSteps){
 ZigZagDancer.prototype = Object.create(Dancer.prototype);
 ZigZagDancer.prototype.constructor = ZigZagDancer;
 
-ZigZagDancer.prototype.setPosition = function(xPos, yPos){
-  var styleSettings = {
-    top: yPos,
-    left: xPos,
-  };
-  this.$node.css(styleSettings);
-};
+
 
 ZigZagDancer.prototype.step = function(xAxis, yAxis, speed){
   if (!speed){
@@ -29,10 +23,10 @@ ZigZagDancer.prototype.step = function(xAxis, yAxis, speed){
 
   var xIncrement = xAxis * (t-m) * speed;
   var yIncrement = yAxis * (t-m) * speed;
-  
+
   this._x = this._x + (xIncrement);
   this._y = this._y + (yIncrement);
-  
+
   var newLeft = Math.floor(this._x);
   var newTop = Math.floor(this._y);
 

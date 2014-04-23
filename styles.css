@@ -3,7 +3,11 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-image:url('http://www.djwallpapers.com/wp-content/uploads/2014/03/Space-Art-Wallpaper-space-7076692-1440-900.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -24,4 +28,46 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+.mover{
+  border:0;
+  height:96px;
+  width:96px;
+  background-image:url('images/penguin.png');
+  background-size:96px 96px;
+  position:absolute;
+}
+.zigzag{
+  border:20px solid yellow;
+  border-radius: 20px;
+  position:absolute;
+}
+.circular{
+  border:0;
+  position:absolute;
+  background-image:url('images/kirby.png');
+  background-size:45px 45px;
+  height:45px;
+  width:45px;
+}
+.GifDancer{
+  border:0;
+  position:absolute;
+  background-image:url('images/Earth.png');
+  background-size:200px 200px;
+  height:200px;
+  width:200px;
+}
+.GifDancer:hover{
+float: left;
+width:400px;
+height:400px;
+background-size:200px 200px;
+background: url("images/Explode.gif") no-repeat scroll 0% 0% transparent;
+}
+
+.lineUpButton{
+  border:1px solid red;
+  position: absolute;
+  left:500px;
 }

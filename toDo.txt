@@ -1,0 +1,11 @@
+Things to do on Tuesday:
+
+1. Find out why event listeners don't work on instances of Dancer
+2. Move "Moveit()" function from init.js into the prototype for ZigZag
+3. Move the variables that MoveIt is dependent on into each instance, make them part of the constructor (with an underscore). Those variables are "time", "x", and "y".
+4. Work out how to invoke init.js on only certain instances
+  (Find out interplay of variables between constructors and anything inside document.ready)
+5. Replace solid blocks of color with an image or something
+6. Consider each instance's awareness of others.
+
+7. Make a keyboard-controlled dancer that repels other dancers. (Solid)
